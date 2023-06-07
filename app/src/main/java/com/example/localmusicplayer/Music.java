@@ -32,21 +32,21 @@ public class Music {
         return String.format("%02d:%02d",minutes,seconds);
     }
 
-//    public static void setSongPosition(boolean increment){
-//        if(increment){
-//            if(PlayerActivity.musicListPA.size() - 1 == PlayerActivity.songPosition){
-//                PlayerActivity.songPosition = 0;
-//            }else {
-//                ++PlayerActivity.songPosition;
-//            }
-//        }else{
-//            if(0 == PlayerActivity.songPosition){
-//                PlayerActivity.songPosition = PlayerActivity.musicListPA.size() - 1;
-//            }else {
-//                --PlayerActivity.songPosition;
-//            }
-//        }
-//    }
+    public static void setSongPosition(boolean increment){
+        if(increment){
+            if(PlayerActivity.musicListPA.size() - 1 == PlayerActivity.songPosition){
+                PlayerActivity.songPosition = 0;
+            }else {
+                ++PlayerActivity.songPosition;
+            }
+        }else{
+            if(0 == PlayerActivity.songPosition){
+                PlayerActivity.songPosition = PlayerActivity.musicListPA.size() - 1;
+            }else {
+                --PlayerActivity.songPosition;
+            }
+        }
+    }
 
 //    public static void setSongPositionForFuncButton(boolean increment){
 //        if(!PlayerActivity.isRepeat){

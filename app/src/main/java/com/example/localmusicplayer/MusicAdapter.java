@@ -1,6 +1,7 @@
 package com.example.localmusicplayer;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -8,6 +9,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -43,6 +45,12 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.MyHolder>{
                 .load(musics.get(position).getArtUri())
                 .apply(RequestOptions.placeholderOf(R.drawable.splash_screen).centerCrop())
                 .into(holder.image);
+        holder.root.setOnClickListener(view -> {
+            Intent intent = new Intent(context, PlayerActivity.class);
+            intent.putExtra("index",holder.getAdapterPosition());
+            intent.putExtra("class", "MusicAdapter");
+            ContextCompat.startActivity(context, intent, null);
+        });
     }
 
     @Override

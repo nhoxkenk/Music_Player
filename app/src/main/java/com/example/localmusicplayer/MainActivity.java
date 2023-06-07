@@ -34,12 +34,17 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestRuntimePermission();
 
         initializeLayout();
 
+        if(requestRuntimePermission()){
+            initializeMusic();
+        }
+
         binding.shuffleBtn.setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity.this, PlayerActivity.class);
+            intent.putExtra("index",0);
+            intent.putExtra("class","MainActivity");
             startActivity(intent);
         });
 
@@ -92,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
         if(requestCode == STORAGE_PERMISSION_CODE){
             if(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
                 Toast.makeText(this, "Permission Granted", Toast.LENGTH_SHORT).show();
-//                initializeMusics();
+                initializeMusic();
             }else{
                 ActivityCompat.requestPermissions(this,new String[]{
                         android.Manifest.permission.READ_EXTERNAL_STORAGE}, STORAGE_PERMISSION_CODE);
@@ -120,6 +125,9 @@ public class MainActivity extends AppCompatActivity {
         toggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+    }
+
+    private void initializeMusic(){
         musics = getAllAudio();
 
         binding.musicRV.setHasFixedSize(true);
