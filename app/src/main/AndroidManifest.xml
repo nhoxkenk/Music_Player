@@ -17,17 +17,17 @@
         <activity
             android:name=".PlaylistActivity"
             android:exported="false"
-            android:theme="@style/Theme.MusicPlayer"
+            android:theme="@style/coolPink"
             android:screenOrientation="portrait"/>
         <activity
             android:name=".FavoriteActivity"
             android:exported="false"
-            android:theme="@style/Theme.MusicPlayer"
+            android:theme="@style/coolPink"
             android:screenOrientation="portrait"/>
         <activity
             android:name=".PlayerActivity"
             android:exported="false"
-            android:theme="@style/Theme.MusicPlayer"
+            android:theme="@style/coolPink"
             android:screenOrientation="portrait"/>
         <activity
             android:name=".MainActivity"
