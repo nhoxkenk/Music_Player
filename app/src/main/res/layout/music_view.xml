@@ -27,7 +27,7 @@
         android:textColor="@color/black" />
 
     <TextView
-        android:id="@+id/songAlbum"
+        android:id="@+id/songArtist"
         android:layout_width="wrap_content"
         android:layout_height="20dp"
         android:layout_marginStart="5dp"
